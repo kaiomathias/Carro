@@ -11,6 +11,7 @@ package aspecto;
  */
 public interface Motor {
     void funcionar();
+    void desligar();
     boolean getLigado();
     int getPotencia();
     void setPotencia(int potencia);

@@ -7,6 +7,7 @@ package pecas;
 
 import aspecto.Diferencial;
 import aspecto.Motor;
+import aspecto.Roda;
 
 /**
  *
@@ -14,39 +15,59 @@ import aspecto.Motor;
  */
 public class MotorV12 implements Motor {
 
+     private boolean ligado;
+    private double velocidade = 1;
+    private int potencia;
+    private Diferencial diferencial;
+
     @Override
     public void funcionar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.ligado = true;
+    }
+
+    @Override
+    public void desligar() {
+        this.ligado = false;
     }
 
     @Override
     public boolean getLigado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.ligado;
     }
 
     @Override
     public int getPotencia() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.potencia;
     }
 
     @Override
     public void setPotencia(int potencia) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.potencia = potencia;
     }
 
     @Override
     public void aumentarVelocidade(double porcentagem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.ligado) {
+            this.velocidade += (velocidade * (porcentagem / 50));
+            for (Roda r : diferencial.getRodas()) {
+                r.girar(velocidade);
+            }
+        }
     }
 
     @Override
     public void diminuirVelocidade(double porcentagem) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.ligado) {
+            this.velocidade -= (velocidade * (porcentagem / 50));
+            for (Roda r : diferencial.getRodas()) {
+                r.girar(velocidade);
+            }
+        }
     }
 
     @Override
     public void acoplarDiferencial(Diferencial diferencial) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.diferencial = diferencial;
     }
-    
+
 }

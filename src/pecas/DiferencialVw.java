@@ -14,14 +14,17 @@ import aspecto.Roda;
  */
 public class DiferencialVw implements Diferencial {
 
+    private Roda[] rodas;
+
     @Override
     public void acoplarRodas(Roda[] rodas) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.rodas = rodas;
     }
 
     @Override
     public Roda[] getRodas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    return this.rodas;
+
     }
-    
+
 }

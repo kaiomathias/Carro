@@ -12,15 +12,16 @@ import aspecto.Roda;
  * @author Loc
  */
 public class RodaFireB implements Roda {
-
+ private double velocidade;
     @Override
     public void girar(double velocidade) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.velocidade = velocidade;
     }
 
     @Override
     public double getVelocidade() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.velocidade;
+        
     }
     
 }

@@ -10,5 +10,7 @@ package aspecto;
  * @author Loc
  */
 public interface Ignicao {
-    void partida (Motor motor);
+    void partida ();
+    void desligar ();
+    void acoplarMotor(Motor motor);
 }
